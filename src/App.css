@@ -1,0 +1,7 @@
+.background-image {
+  background-image: url('../images/floral.jpg');
+  background-size: cover; /* Cover the entire background */
+  background-repeat: no-repeat; /* Prevent background image from repeating */
+  background-attachment: fixed; /* Fixed background position */
+  background-position: center center; /* Center the background image */
+}

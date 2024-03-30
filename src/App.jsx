@@ -4,7 +4,8 @@ import { v4 as uuidv4 } from 'uuid';
 
 function App() { 
 
-  const [todo, setTodo] = useState("")
+  const [todo, setTodo] = useState([])
+
   const [todos, setTodos] = useState([])
   const [showFinished, setshowFinished] = useState(true)
 
@@ -80,7 +81,7 @@ function App() {
           <h2 className='text-2xl font-bold text-lime-200 '>Add a Todo</h2>
           <div className="flex">
 
-          <input  onChange={handleChange} value={todo} type="text" className='w-full rounded-md px-5 py-1' />
+          <input  onChange={handleChange}  value={todo}  type="text" maxLength={40} className='w-full rounded-md px-5 py-1' />
           <button onClick={handleAdd} disabled={todo.length<=3} className='bg-red-600 mx-2 rounded-md hover:bg-red-400 disabled:bg-gray-500 p-4 py-2 text-sm font-bold text-white'>Add</button>
           </div>
          </div>
@@ -92,7 +93,7 @@ function App() {
           {todos.length ===0 && <div className='m-5 text-white '>No Todos to display</div> }
           {todos.map(item=>{
  
-          return (showFinished || !item.isCompleted) && <div key={item.id} className={"todo flex my-3 justify-between text-white "}>
+          return (showFinished || !item.isCompleted) && <div key={item.id} className={`todo flex my-3 justify-between text-white`}>
             <div className='flex gap-5'> 
             <input name={item.id} onChange={handleCheckbox} type="checkbox" checked={item.isCompleted} id="" />
             <div className={item.isCompleted?"line-through":""}>{item.todo}</div>
